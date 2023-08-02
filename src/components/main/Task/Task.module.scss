@@ -7,8 +7,8 @@
     background-color: #1d1d26;
     display: flex;
     height: 100%;
-    padding: 80px;
-    width: 600px;
+    padding: 60px;
+    width: 500px;
     height: auto;
     z-index: 0;
     border-radius: 20px;
@@ -31,4 +31,83 @@
         border-radius: 15px;
         color:rgb(126, 122, 122) !important;
     }
+}
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .Task {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #1d1d26;
+        display: flex;
+        height: 100%;
+        padding: 30px;
+        width: 600px;
+        height: auto;
+        z-index: 0;
+        border-radius: 20px;
+        background-color: #1d1d26;
+    
+        .NameOfTaskContainer{
+            border: 3px solid #c5326a;
+            padding: 20px;
+            border-radius: 15px;
+            color:white;
+        }
+        .DescriptionOfTaskContainer{
+            margin-top: 50px;
+            color:white;
+        }
+        .Text{
+            margin-top: 25px;
+            border: 3px solid #c5326a;
+            padding: 20px;
+            border-radius: 15px;
+            color:rgb(126, 122, 122) !important;
+        }
+    }
+    
+}
+
+
+@media screen and (min-width: 320px) and (max-width:  767px){
+    .Task {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #1d1d26;
+        display: flex;
+        height: 100%;
+        padding: 40px;
+        width: 5400px;
+        height: auto;
+        z-index: 0;
+        border-radius: 20px;
+        background-color: #1d1d26;
+    
+        .NameOfTaskContainer{
+            border: 3px solid #c5326a;
+            padding: 20px;
+            border-radius: 15px;
+            color:white;
+        }
+        .DescriptionOfTaskContainer{
+            margin-top: 50px;
+            color:white;
+        }
+        .Text{
+            margin-top: 25px;
+            border: 3px solid #c5326a;
+            padding: 20px;
+            border-radius: 15px;
+            color:rgb(126, 122, 122) !important;
+        }
+    } 
 }

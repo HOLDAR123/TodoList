@@ -10,6 +10,7 @@
   height: 100vh;
   flex-direction: column; 
   align-items: flex-start;
+  z-index: 99999;
 
   
 
@@ -97,6 +98,11 @@
   .buttonCLose {
       display: none ; 
     }  
+    .Collection{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 }
 
 
