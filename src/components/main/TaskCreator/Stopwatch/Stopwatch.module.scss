@@ -1,0 +1,30 @@
+.Stopwatch {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #15151c;
+    padding: 8px;
+
+    .iconWrapper {
+        margin-right: 10px;
+      }
+      
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+      }
+      
+      img {
+        width: 24px;
+        height: 24px;
+      }
+      
+      .time {
+        width: 100px;
+      }
+      
+  }
+  

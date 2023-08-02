@@ -1,0 +1,345 @@
+.TaskCreator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .TaskCreatorForm {
+        display: flex;
+        height: 100%;
+        padding: 80px;
+        width: 600px;
+        height: auto;
+        border-radius: 20px;
+        background-color: #1d1d26;
+    }
+
+    ul {
+        width: 90%;
+        height: auto;
+        padding: 0;
+        margin-right: 28px;
+        list-style-type: none;
+
+        li {
+            color: rgb(253, 253, 253);
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            background-color: #15151c;
+
+            .Buttons {
+                padding: 10px;
+                cursor: pointer;
+                margin-right: 10px;
+                border-radius: 8px;
+                background-color: #15151c;
+                border: 3px solid #c5326a;
+
+                &:focus {
+                    background-color: #c5326a;
+                }
+            }
+
+            .ButtonCreate {
+                padding: 3px;
+                width: 26px;
+                height: 26px;
+                cursor: pointer;
+                margin-right: 10px;
+                border-radius: 8px;
+                background-color: #c5326a;
+                border: 3px solid #c5326a;
+
+            }
+
+
+        }
+    }
+
+
+}
+
+
+.createTask {
+    background-color: transparent !important;
+    border: 3px solid #15151c;
+    width: 535px !important;
+
+}
+
+.active {
+    background-color: #c5326a !important;
+
+}
+
+.activeLi {
+    text-decoration-line: line-through;
+}
+
+.LiDefault {
+    text-decoration: none;
+}
+
+.taskStyle {
+    width: 100%;
+}
+
+.completedStyle {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .TaskCreator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .TaskCreatorForm {
+            display: flex;
+            height: 100%;
+            padding: 80px;
+            width: 600px;
+            height: auto;
+            border-radius: 20px;
+            background-color: #1d1d26;
+        }
+
+        ul {
+            width: 90%;
+            height: auto;
+            padding: 0;
+            margin-right: 28px;
+            list-style-type: none;
+
+            li {
+                color: rgb(253, 253, 253);
+                margin: 10px;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-radius: 10px;
+                width: 100%;
+                background-color: #15151c;
+
+                .Buttons {
+                    padding: 10px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    background-color: #15151c;
+                    border: 3px solid #c5326a;
+
+                    &:focus {
+                        background-color: #c5326a;
+                    }
+                }
+
+                .ButtonCreate {
+                    padding: 3px;
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    background-color: #c5326a;
+                    border: 3px solid #c5326a;
+
+                }
+
+
+            }
+        }
+
+
+    }
+
+}
+
+.CompletedIconCheck{
+    background-color: transparent ;
+    border: 1px solid transparent ;
+    cursor:pointer
+}
+
+.ButtonDeleteTask {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: transparent ;
+    border: 2px solid  #c5326a  ;
+    border-radius: 20px;
+    padding: 6px;
+    display: flex;
+    justify-content:flex-end;
+    cursor:pointer;
+
+}
+.completedStyle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.CompletedText{
+    display:flex;
+    align-items: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .createTask {
+        background-color: transparent !important;
+        border: 3px solid #15151c;
+        width: 400px !important;
+
+    }
+
+    .TaskCreator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .TaskCreatorForm {
+            display: flex;
+            height: 100%;
+            padding: 80px;
+            width: 450px;
+            height: auto;
+            border-radius: 20px;
+            background-color: #1d1d26;
+        }
+
+        ul {
+            width: 90%;
+            height: auto;
+            padding: 0;
+            margin-right: 28px;
+            list-style-type: none;
+
+            li {
+                color: rgb(253, 253, 253);
+                margin: 10px;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-radius: 10px;
+                width: 100%;
+                background-color: #15151c;
+
+                .Buttons {
+                    padding: 10px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    background-color: #15151c;
+                    border: 3px solid #c5326a;
+
+                    &:focus {
+                        background-color: #c5326a;
+                    }
+                }
+
+                .ButtonCreate {
+                    padding: 3px;
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    background-color: #c5326a;
+                    border: 3px solid #c5326a;
+
+                }
+
+
+            }
+        }
+
+
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .createTask {
+        background-color: transparent !important;
+        border: 3px solid #15151c;
+        width: 310px !important;
+
+    }
+
+    .TaskCreator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .TaskCreatorForm {
+            display: flex;
+            height: 100%;
+            padding: 10px;
+            width: 350px;
+            height: auto;
+            border-radius: 20px;
+            background-color: #1d1d26;
+        }
+
+        ul {
+            width: 90%;
+            height: auto;
+            padding: 0;
+            margin-right: 28px;
+            list-style-type: none;
+
+            li {
+                color: rgb(253, 253, 253);
+                margin: 10px;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-radius: 10px;
+                width: 100%;
+                background-color: #15151c;
+
+                .Buttons {
+                    padding: 10px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    background-color: #15151c;
+                    border: 3px solid #c5326a;
+
+                    &:focus {
+                        background-color: #c5326a;
+                    }
+                }
+
+                .ButtonCreate {
+                    padding: 3px;
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    background-color: #c5326a;
+                    border: 3px solid #c5326a;
+
+                }
+
+
+            }
+        }
+
+
+    }
+
+}

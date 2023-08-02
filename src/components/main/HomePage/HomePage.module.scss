@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.HomePage {
+  background: linear-gradient(45deg, rgba(14, 49, 73, 1) 0%, rgba(9, 38, 121, 1) 45%, rgba(0, 212, 255, 1) 100%);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  animation: fadeInBackground 5s infinite alternate;
+  background-size: 200% 200%;
+
+  .Content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .TextContainer {
+      margin-top: 100px;
+      position: absolute;
+      color: #ffffff;
+
+      h1 {
+        font-size: 90px;
+      }
+      p {
+        font-size: 30px;
+        color: #888899;
+      }
+      h2 {
+        font-size: 60px;
+      }
+    }
+
+    .ButtonClick {
+      button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: #ffffff; 
+        background: #49dbbe;
+        border: none;
+        cursor: pointer; 
+        padding: 20px 40px; 
+        border-radius: 50px; 
+        transition: transform 0.2s ease, box-shadow 0.2s ease; 
+
+        &:hover {
+          transform: scale(1.05); 
+          box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.16);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media screen and (max-width: 1508px) {
+  .HomePage {
+    .Content {
+      .TextContainer {
+        h1{
+          font-size: 80px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .HomePage {
+    .Content {
+      .TextContainer {
+        h1{
+          font-size: 50px;
+        }
+        p{
+          font-size: 20px;
+        }
+        h2{
+          font-size: 40px;
+        }
+      
+    }
+  }
+  @media (max-height: 100vh) {
+    height: auto;
+    overflow: auto;
+  }
+  
+  @media (min-height: 100vh) {
+    height: 100vh;
+  }
+}
+}
