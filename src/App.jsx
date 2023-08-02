@@ -1,5 +1,5 @@
 import s from "./App.module.scss";
-import HomePage from "./components/main/HomePage/HomePage";
+import HomePage from "./pages/HomePage";
 import TaskPage from "./pages/TaskPage";
 import OneTask from "./pages/OneTaskPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

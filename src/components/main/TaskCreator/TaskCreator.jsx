@@ -1,15 +1,16 @@
 
 import React from "react";
 import s from "./TaskCreator.module.scss";
-import { DataParser, useAddTask, AddState, useDeleteTask } from "../../../hooks/DataParser";
+import { DataParser, useAddTask, useAddState, useDeleteTask } from "../../../hooks/DataParser";
 import Loading from "../../../assets/images/Loading.svg";
 import plus from "../../../assets/images/plus.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleButton } from "../../../redux/taskCreatorSlice";
 import { toggleModal } from "../../../redux/taskCreateModalSlice";
-import Modal from "../Modal/CreateTaskModal/CreateTaskModal";
+import Modal from "../ModalWindows/CreateTaskModal/CreateTaskModal";
 import Stopwatch from "./Stopwatch/Stopwatch";
 import CompletedIcon from "../../../assets/images/success.svg";
+import { useQueryClient } from 'react-query';
 
 export default function TaskCreator({ id }) {
   const { isLoading, error, data, refetch } = DataParser();
@@ -17,7 +18,9 @@ export default function TaskCreator({ id }) {
   const deleteTaskMutation = useDeleteTask();
   const activeButtons = useSelector((state) => state.taskCreator.activeButtons);
 
-  const { mutate } = AddState();
+  const { mutate } = useAddState();
+
+  const queryClient = useQueryClient();
 
   const isModal = useSelector((state) => state.ModalOpener.isModal);
 
@@ -28,7 +31,7 @@ export default function TaskCreator({ id }) {
   const handleButtonClick = async (taskId) => {
     dispatch(toggleButton(taskId));
     ChangeStateIsCompleted(taskId);
-    window.location.reload();
+    queryClient.invalidateQueries({queryKey:['favours']})
   };
 
   const handleDeleteTask = async (taskId) => {

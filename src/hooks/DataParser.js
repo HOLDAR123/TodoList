@@ -25,7 +25,7 @@ export const useAddTask = () => {
   return useMutation(addTasks);
 };
 
-export const AddState = () => {
+export const useAddState = () => {
   return useMutation(ChangeTask);
 };
 

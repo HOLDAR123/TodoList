@@ -2,12 +2,17 @@ import React , {useState} from 'react';
 import s from './CreateTaskModal.module.scss';
 import cross from '../../../../assets/images/CrossActive.svg';
 import { useAddTask } from '../../../../hooks/DataParser';
+import { useQueryClient } from 'react-query';
+import { toggleModal } from '../../../../redux/taskCreateModalSlice';
+import  { useDispatch } from 'react-redux'
 
 export default function Modal({ onClose }) {
+  const queryClient = useQueryClient()
   const { mutate } = useAddTask();
   const [name, setName] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
   const [TextArea,setTextArea] = useState('');
+  const dispatch = useDispatch();
 
   function HandleTextArea(e){
     setTextArea(e.target.value);
@@ -23,7 +28,8 @@ export default function Modal({ onClose }) {
     setIsCompleted(false)
     mutate(task);
     setName('')
-    window.location.reload();
+    queryClient.invalidateQueries({queryKey:['favours']})
+    dispatch(toggleModal())
   }
 
   function AddCollectionToDb() {
