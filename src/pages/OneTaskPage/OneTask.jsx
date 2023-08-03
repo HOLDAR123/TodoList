@@ -8,7 +8,7 @@ import { GetTaskById } from '../../hooks/dataTasksParser';
 
 const OneTask = () => {
   const { taskId } = useParams()
-  console.log(taskId);
+  
   const {data} = GetTaskById(taskId)
   return (
     <div className={s.TaskPage}>
