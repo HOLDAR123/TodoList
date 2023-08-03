@@ -9,7 +9,7 @@ export default function App() {
     <div className={s.App}>
       <Router>
         <Routes>
-          <Route path="/tasks/:taskId" element={<OneTask />} />
+          <Route path="/collection/:collectionId" element={<OneTask />} />
           <Route path="/tasks" element={<TaskPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
