@@ -3,10 +3,10 @@ import s from './NavbarItems.module.scss';
 import loading from '../../../../assets/images/Loading.svg';
 import { Link } from 'react-router-dom';
 import cross from '../../../../assets/images/Cross.svg'; 
-import { DataParser } from '../../../../hooks/DataParser';
+import { GetCollections } from '../../../../hooks/dataCollectionsParser'; 
 
 export default function NavbarItems({ isNavbarOpen, onCloseNavbar }) {
-  const { isLoading, isError, data, error } = DataParser();
+  const { isLoading, isError, data, error } = GetCollections();
 
   if (isLoading) {
     return <div><img src={loading} alt="load" className={s.Loading} /></div>;
@@ -25,10 +25,10 @@ export default function NavbarItems({ isNavbarOpen, onCloseNavbar }) {
               <img src={cross} alt="Close" />
             </button>
           </li>
-          <li className={s.Collection}><Link to={'/tasks'} className={s.MainLink}>Tasks:</Link></li>
-          {data.map((task) => (
-            <li key={task.id} className={s.Categories}>
-              <Link to={`/tasks/${task.id}`} className={s.Link}>{task.name}</Link>
+          <li className={s.Collection}><Link to={'/tasks'} className={s.MainLink}>Collections</Link></li>
+          {data.map((Collection) => (
+            <li key={Collection.id} className={s.Categories}>
+              <Link to={`/tasks/${Collection.id}`} className={s.Link}>{Collection.name}</Link>
             </li>
           ))}
         </ul>

@@ -4,12 +4,12 @@ import Navbar from '../../components/main/Navbar/Navbar';
 import Task from '../../components/main/Task/Task';
 
 import s from './OneTask.module.scss'
-import { OneDataParser } from '../../hooks/DataParser';
+import { GetTaskById } from '../../hooks/dataTasksParser';
 
 const OneTask = () => {
   const { taskId } = useParams()
   console.log(taskId);
-  const {data} = OneDataParser(taskId)
+  const {data} = GetTaskById(taskId)
   return (
     <div className={s.TaskPage}>
       <Navbar />

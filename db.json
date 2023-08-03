@@ -1,46 +1,28 @@
 {
   "tasks": [
     {
-      "name": "school",
+      "name": "123",
       "isCompleted": false,
-      "TextArea": "sqweqr",
+      "textArea": "123",
       "id": 1
     },
     {
-      "name": "Home",
+      "name": "hello",
       "isCompleted": false,
-      "TextArea": "i feed my cat",
+      "textArea": "123123",
       "id": 2
+    }
+  ],
+  "collections": [
+    {
+      "name": "123",
+      "isCompleted": false,
+      "id": 1
     },
     {
       "name": "123",
       "isCompleted": false,
-      "TextArea": "123",
-      "id": 3
-    },
-    {
-      "name": "123",
-      "isCompleted": false,
-      "TextArea": "123",
-      "id": 4
-    },
-    {
-      "name": "123",
-      "isCompleted": false,
-      "TextArea": "123",
-      "id": 5
-    },
-    {
-      "name": "123123",
-      "isCompleted": false,
-      "TextArea": "123",
-      "id": 6
-    },
-    {
-      "name": "123",
-      "isCompleted": false,
-      "TextArea": "123",
-      "id": 8
+      "id": 2
     }
   ]
 }

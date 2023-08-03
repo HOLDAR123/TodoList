@@ -1,19 +1,22 @@
 import axios from "axios";
-import { useQuery, useMutation } from "react-query";
+import {
+  useQuery,
+  useMutation
+} from "react-query";
 
-const getData = () => {
+const getTasks = () => {
   return axios.get("http://localhost:8000/tasks");
 };
 
-const getOneData = (id) => () => {
+const getOneTask = (id) => () => {
   return axios.get(`http://localhost:8000/tasks/${id}`);
 };
 
-const addTasks = (item) => {
+const addTask = (item) => {
   return axios.post("http://localhost:8000/tasks", item);
 };
 
-const ChangeTask = (item) => {
+const editTask = (item) => {
   return axios.put(`http://localhost:8000/tasks/${item.id}`, item);
 };
 
@@ -22,27 +25,27 @@ const deleteTask = (taskId) => {
 };
 
 export const useAddTask = () => {
-  return useMutation(addTasks);
+  return useMutation(addTask);
 };
 
-export const useAddState = () => {
-  return useMutation(ChangeTask);
+export const useEditTask = () => {
+  return useMutation(editTask);
 };
 
 export const useDeleteTask = () => {
   return useMutation(deleteTask);
 };
 
-export const DataParser = () => {
-  return useQuery("favours", getData, {
+export const GetTasks = () => {
+  return useQuery("todos", getTasks, {
     select: (data) => {
       return data.data;
     },
   });
 };
 
-export const OneDataParser = (id) => {
-  return useQuery(`favour-${id}`, getOneData(id), {
+export const GetTaskById = (id) => {
+  return useQuery(`todo-${id}`, getOneTask(id), {
     select: (data) => data.data,
   });
 };

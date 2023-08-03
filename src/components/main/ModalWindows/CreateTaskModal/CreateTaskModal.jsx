@@ -1,17 +1,17 @@
 import React , {useState} from 'react';
 import s from './CreateTaskModal.module.scss';
 import cross from '../../../../assets/images/CrossActive.svg';
-import { useAddTask } from '../../../../hooks/DataParser';
+import { useAddTask } from '../../../../hooks/dataTasksParser';
 import { useQueryClient } from 'react-query';
 import { toggleModal } from '../../../../redux/taskCreateModalSlice';
 import  { useDispatch } from 'react-redux'
 
-export default function Modal({ onClose }) {
+export default function Modal() {
   const queryClient = useQueryClient()
   const { mutate } = useAddTask();
   const [name, setName] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
-  const [TextArea,setTextArea] = useState('');
+  const [textArea,setTextArea] = useState('');
   const dispatch = useDispatch();
 
   function HandleTextArea(e){
@@ -23,12 +23,16 @@ export default function Modal({ onClose }) {
     setName(e.target.value);
   }
 
+  function onClose(){
+    dispatch(toggleModal())
+  }
+
   function AddTaskToDb() {
-    const task = { name , isCompleted, TextArea};
+    const task = { name , isCompleted, textArea};
     setIsCompleted(false)
     mutate(task);
     setName('')
-    queryClient.invalidateQueries({queryKey:['favours']})
+    queryClient.invalidateQueries({queryKey:['todos']})
     dispatch(toggleModal())
   }
 
@@ -50,7 +54,7 @@ export default function Modal({ onClose }) {
               <div>
                 <label>Name of DailyTasks:</label>
                 <input
-                  type="te"
+                  type="text"
                   required
                   value={name}
                   onChange={HandleChangeName}
@@ -61,7 +65,7 @@ export default function Modal({ onClose }) {
                 <textarea cols="45" rows="10" type="text"
                 className={s.textareaStyles}
                   required
-                  value={TextArea}
+                  value={textArea}
                   onChange={HandleTextArea}>
                 </textarea>
               </div>

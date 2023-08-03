@@ -1,24 +1,24 @@
-
 import React from "react";
 import s from "./TaskCreator.module.scss";
-import { DataParser, useAddTask, useAddState, useDeleteTask } from "../../../hooks/DataParser";
+import { useAddTask, useEditTask, useDeleteTask, GetTasks } from "../../../hooks/dataTasksParser";
 import Loading from "../../../assets/images/Loading.svg";
 import plus from "../../../assets/images/plus.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleButton } from "../../../redux/taskCreatorSlice";
 import { toggleModal } from "../../../redux/taskCreateModalSlice";
-import Modal from "../ModalWindows/CreateTaskModal/CreateTaskModal";
+import CreateCollectionModal from '../ModalWindows/CreateCollectionModal/CreateCollectionModal';
+import CreateTaskModal from "../ModalWindows/CreateTaskModal/CreateTaskModal";
 import Stopwatch from "./Stopwatch/Stopwatch";
 import CompletedIcon from "../../../assets/images/success.svg";
 import { useQueryClient } from 'react-query';
 
 export default function TaskCreator({ id }) {
-  const { isLoading, error, data, refetch } = DataParser();
+  const { isLoading, error, data, refetch } = GetTasks();
   const addTaskMutation = useAddTask();
   const deleteTaskMutation = useDeleteTask();
   const activeButtons = useSelector((state) => state.taskCreator.activeButtons);
 
-  const { mutate } = useAddState();
+  const { mutate } = useEditTask();
 
   const queryClient = useQueryClient();
 
@@ -31,11 +31,11 @@ export default function TaskCreator({ id }) {
   const handleButtonClick = async (taskId) => {
     dispatch(toggleButton(taskId));
     ChangeStateIsCompleted(taskId);
-    queryClient.invalidateQueries({queryKey:['favours']})
+    queryClient.invalidateQueries({ queryKey: ['todos'] });
   };
 
   const handleDeleteTask = async (taskId) => {
-    const confirmDelete = window.confirm("Вы уверены, что хотите удалить эту задачу?");
+    const confirmDelete = window.confirm("Are you sure you want to delete this task?");
     if (!confirmDelete) {
       return;
     }
@@ -44,7 +44,7 @@ export default function TaskCreator({ id }) {
       await deleteTaskMutation.mutateAsync(taskId);
       refetch();
     } catch (error) {
-      console.error("Ошибка удаления задачи:", error);
+      console.error("Error deleting task:", error);
     }
   };
 
@@ -60,7 +60,12 @@ export default function TaskCreator({ id }) {
   };
 
   const handleOpenModal = () => {
-    dispatch(toggleModal());
+    const shouldCreateTask = window.confirm("Do you want to create a task?");
+    if (shouldCreateTask) {
+      dispatch(toggleModal("task"));
+    } else {
+      dispatch(toggleModal("collection"));
+    }
   };
 
   const handleAddTask = (newTask) => {
@@ -82,7 +87,8 @@ export default function TaskCreator({ id }) {
   return (
     <div className={s.TaskCreator}>
       <div className={s.TaskCreatorForm}>
-        {isModal && <Modal onClose={handleOpenModal} onAddTask={handleAddTask} />}
+        {isModal === "task" && <CreateTaskModal onClose={handleOpenModal} onAddTask={handleAddTask} />}
+        {isModal === "collection" && <CreateCollectionModal onClose={handleOpenModal} onAddTask={handleAddTask} />}
         <ul>
           <li className={s.createTask}>
             <button className={s.ButtonCreate} onClick={handleOpenModal}>
@@ -96,7 +102,7 @@ export default function TaskCreator({ id }) {
                 <div className={s.completedStyle}>
                   <button onClick={() => handleButtonClick(task.id)} className={s.CompletedIconCheck}>
                     <img src={CompletedIcon} alt="completed" />
-                   <span className={s.CompletedText}> Completed</span>
+                    <span className={s.CompletedText}> Completed</span>
                   </button>{" "}
                   <button onClick={() => handleDeleteTask(task.id)} className={s.ButtonDeleteTask}>Delete Task</button>
                 </div>
