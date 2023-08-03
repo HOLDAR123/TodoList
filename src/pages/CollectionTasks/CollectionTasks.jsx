@@ -6,7 +6,7 @@ import Task from '../../components/main/Task/Task';
 import s from './CollectionTasks.module.scss'
 import { GetTaskById } from '../../hooks/dataTasksParser';
 
-const OneTask = () => {
+const CollectionTasks = () => {
   const { taskId } = useParams()
   const {data} = GetTaskById(taskId)
   return (
@@ -17,4 +17,4 @@ const OneTask = () => {
   )
 }
 
-export default OneTask
+export default CollectionTasks;

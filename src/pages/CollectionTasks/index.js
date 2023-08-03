@@ -1,3 +1,3 @@
-import OneTask from "./OneTask";
+import CollectionTasks from "./CollectionTasks";
 
-export default OneTask;
+export default CollectionTasks;
