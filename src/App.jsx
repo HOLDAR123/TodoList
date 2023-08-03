@@ -1,7 +1,7 @@
 import s from "./App.module.scss";
 import HomePage from "./pages/HomePage";
 import TaskPage from "./pages/TaskPage";
-import OneTask from "./pages/OneTaskPage";
+import CollectionTasks from "./pages/CollectionTasks";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
     <div className={s.App}>
       <Router>
         <Routes>
-          <Route path="/collection/:collectionId" element={<OneTask />} />
+          <Route path="/collection/:collectionId" element={<CollectionTasks />} />
           <Route path="/tasks" element={<TaskPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
