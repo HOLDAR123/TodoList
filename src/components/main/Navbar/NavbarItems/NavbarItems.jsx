@@ -36,7 +36,7 @@ export default function NavbarItems({ isNavbarOpen, onCloseNavbar }) {
           <li className={s.Collection}><Link to={'/tasks'} className={s.MainLink}>Collections</Link></li>
           {data.map((Collection) => (
             <li key={Collection.id} className={s.Categories}>
-              <Link to={`/tasks/${Collection.id}`} className={s.Link}>{Collection.name}</Link>
+              <Link to={`/collections/${Collection.id}`} className={s.Link}>{Collection.name}</Link>
             </li>
           ))}
         </ul>
