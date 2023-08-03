@@ -7,8 +7,8 @@ import s from './CollectionTasks.module.scss';
 import { useGetCollectionById } from '../../hooks/dataCollectionsParser';
 
 const CollectionTasks = () => {
-  const { collectionId } = useParams();
-  const { data } = useGetCollectionById(collectionId); 
+  const { taskId } = useParams();
+  const { data } = useGetCollectionById(taskId); 
   return (
     <div className={s.TaskPage}>
       <Navbar />

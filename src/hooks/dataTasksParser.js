@@ -45,7 +45,7 @@ export const GetTasks = () => {
 };
 
 export const GetTaskById = (id) => {
-  return useQuery(`todo-${id}`, getOneTask(id), {
+  return useQuery(["todo", id], () => getOneTask(id)(), {
     select: (data) => data.data,
   });
 };

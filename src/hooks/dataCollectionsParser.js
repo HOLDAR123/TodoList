@@ -44,8 +44,8 @@ export const GetCollections = () => {
   });
 };
 
-export const GetCollectionById = (id) => {
-  return useQuery(`collection-${id}`, getOneCollection(id), {
+export const useGetCollectionById = (id) => {
+  return useQuery(["collection", id], () => getOneCollection(id)(), {
     select: (data) => data.data,
   });
 };
