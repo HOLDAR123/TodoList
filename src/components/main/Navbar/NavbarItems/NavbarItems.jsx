@@ -4,8 +4,13 @@ import loading from '../../../../assets/images/Loading.svg';
 import { Link } from 'react-router-dom';
 import cross from '../../../../assets/images/Cross.svg'; 
 import { GetCollections } from '../../../../hooks/dataCollectionsParser'; 
+import { useQueryClient } from 'react-query';
 
 export default function NavbarItems({ isNavbarOpen, onCloseNavbar }) {
+  const queryClient = useQueryClient();
+  
+
+
   const { isLoading, isError, data, error } = GetCollections();
 
   if (isLoading) {
@@ -15,6 +20,9 @@ export default function NavbarItems({ isNavbarOpen, onCloseNavbar }) {
   if (isError) {
     return <div>Error: {error.message}</div>;
   }
+
+  queryClient.invalidateQueries({queryKey:['collections']})
+
 
   return (
     <>
